@@ -13,11 +13,12 @@ app.use(express.json());
 app.use("/api", routers);
 app.use(errorHandler);
 
+const HOST = "0.0.0.0";
 const PORT = process.env.PORT || 4000;
 
 connectToDB()
   .then(() => {
-    app.listen(PORT, () => {
+    app.listen(PORT, HOST, () => {
       console.log(`server listening PORT: ${PORT}`);
     });
   })
